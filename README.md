@@ -1,3 +1,5 @@
+![Alt text](./poko-high-resolution-logo.png)
+
 # POKE Backend API
 [![main](https://github.com/ViacheslavMelnichenko/poke-api/actions/workflows/main.yml/badge.svg)](https://github.com/ViacheslavMelnichenko/poke-api/actions/workflows/main.yml)
 
