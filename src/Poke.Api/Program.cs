@@ -19,6 +19,7 @@ builder
     .AddPresentation()
     .AddAuthorization()
     .AddCache(builder.Configuration)
+    .AddBasicAuthenticationAndAuthorization()
     .AddAuth0AuthenticationAndAuthorization(builder.Configuration)
     .AddSwaggerGen()
     .AddTransient<IConfigureOptions<SwaggerGenOptions>, CustomSwaggerOptions>();
