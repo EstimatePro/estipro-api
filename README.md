@@ -1,3 +1,5 @@
+![Alt text](./poko-high-resolution-logo.png)
+
 # POKE Backend API
 [![main](https://github.com/ViacheslavMelnichenko/poke-api/actions/workflows/main.yml/badge.svg)](https://github.com/ViacheslavMelnichenko/poke-api/actions/workflows/main.yml)
 
@@ -42,8 +44,8 @@ Copy code
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/AgilePoke/poke-backend.git
-   cd poke-backend/src/Poke.Api
+   git clone https://github.com/ViacheslavMelnichenko/poke-api.git
+   cd poke-api/src/Poke.Api
 2. Install dependencies:
    ```bash
    dotnet restore
