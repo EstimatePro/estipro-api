@@ -11,9 +11,8 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddCustomLogging(this IServiceCollection service, WebApplicationBuilder builder)
     {
-        var otelExporterConfig = builder.Configuration.GetSection("OpenTelemetry:Exporter");
-        var endpoint = otelExporterConfig.GetValue<string>("Endpoint");
-        var headers = otelExporterConfig.GetValue<string>("Headers:Authorization");
+        var endpoint = builder.Configuration["OpenTelemetry:Exporter.Endpoint"];
+        var headers = builder.Configuration["OpenTelemetry:Exporter.Headers.Authorization"];
 
         var serviceName =
             string.Join('-', builder.Environment.ApplicationName.Split('.').Select(x => x.ToLowerInvariant()));
