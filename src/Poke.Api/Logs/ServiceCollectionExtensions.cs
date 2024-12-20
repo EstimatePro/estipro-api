@@ -12,7 +12,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddCustomLogging(this IServiceCollection service, WebApplicationBuilder builder)
     {
         var endpoint = builder.Configuration["OpenTelemetry:Exporter.Endpoint"];
-        var headers = builder.Configuration["OpenTelemetry:Exporter.Headers.Authorization"];
+        var authHeader = builder.Configuration["OpenTelemetry:Exporter.Headers.Authorization"];
 
         var serviceName =
             string.Join('-', builder.Environment.ApplicationName.Split('.').Select(x => x.ToLowerInvariant()));
@@ -25,7 +25,7 @@ public static class ServiceCollectionExtensions
         {
             Protocol = OtlpExportProtocol.HttpProtobuf,
             Endpoint = new Uri(endpoint!),
-            Headers = headers
+            Headers = authHeader
         };
 
         builder.Logging.ClearProviders();
@@ -38,6 +38,7 @@ public static class ServiceCollectionExtensions
                     .UseGrafana(config => { config.ExporterSettings = otlpExporter; })
                     .AddAspNetCoreInstrumentation()
                     .AddHttpClientInstrumentation()
+                    .AddOtlpExporter()
                     .AddConsoleExporter();
             })
             .WithMetrics(configure =>
@@ -48,15 +49,19 @@ public static class ServiceCollectionExtensions
                     .AddAspNetCoreInstrumentation()
                     .AddRuntimeInstrumentation()
                     .AddHttpClientInstrumentation()
+                    .AddOtlpExporter()
                     .AddConsoleExporter();
             });
 
-        builder.Logging.AddOpenTelemetry(options =>
+        builder.Logging.AddOpenTelemetry(configure =>
         {
-            options
+            configure
                 .SetResourceBuilder(resourceBuilder)
                 .UseGrafana(config => { config.ExporterSettings = otlpExporter; })
-                .AddConsoleExporter();
+                .AddOtlpExporter();
+            
+            configure.IncludeScopes = true;
+            configure.IncludeFormattedMessage = true;
         });
 
         return service;
