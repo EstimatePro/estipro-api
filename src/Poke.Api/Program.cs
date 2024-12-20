@@ -5,7 +5,6 @@ using Poke.Api.Swagger;
 using Poke.Application;
 using Poke.Infrastructure;
 using Poke.Presentation;
-using Serilog;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +18,7 @@ builder
     .AddPresentation()
     .AddAuthorization()
     .AddCache(builder.Configuration)
+    .AddBasicAuthenticationAndAuthorization()
     .AddAuth0AuthenticationAndAuthorization(builder.Configuration)
     .AddSwaggerGen()
     .AddTransient<IConfigureOptions<SwaggerGenOptions>, CustomSwaggerOptions>();
@@ -36,7 +36,6 @@ app.UseHttpsRedirection();
 app.MapCustomHealthChecks();
 app.UseSwagger();
 app.UseSwaggerUI();
-app.UseSerilogRequestLogging();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

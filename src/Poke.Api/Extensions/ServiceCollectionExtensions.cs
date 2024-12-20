@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
@@ -63,6 +64,15 @@ public static class ServiceCollectionExtensions
         services.AddAuthorization();
 
         services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
+        return services;
+    }
+
+    public static IServiceCollection AddBasicAuthenticationAndAuthorization(
+        this IServiceCollection services)
+    {
+        services.AddAuthentication("Basic")
+            .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("Basic", null);
+
         return services;
     }
 }
