@@ -38,6 +38,7 @@ public static class ServiceCollectionExtensions
                     .UseGrafana(config => { config.ExporterSettings = otlpExporter; })
                     .AddAspNetCoreInstrumentation()
                     .AddHttpClientInstrumentation()
+                    .AddEntityFrameworkCoreInstrumentation()
                     .AddOtlpExporter()
                     .AddConsoleExporter();
             })
