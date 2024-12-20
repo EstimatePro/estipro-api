@@ -19,6 +19,8 @@ public static class ServiceCollectionExtensions
 
         var resourceBuilder = ResourceBuilder
             .CreateDefault()
+            .AddHostDetector()
+            .AddContainerDetector()
             .AddService(serviceName: serviceName, serviceVersion: "1.0.0");
 
         var otlpExporter = new OtlpExporter
