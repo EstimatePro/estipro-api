@@ -89,7 +89,7 @@ jobs:
           script: |
             /usr/local/bin/docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
             /usr/local/bin/docker pull '${{ env.DOCKER_IMAGE }}'
-            /usr/local/bin/docker rm -f ${{ vars.IMAGE_NAME }}
+            /usr/local/bin/docker rm -f ${{ vars.CONTAINER_NAME }}
             /usr/local/bin/docker run --name ${{ vars.CONTAINER_NAME }} -p ${{ vars.CONTAINER_PORT }}:80 -d \
               -e ASPNETCORE_ENVIRONMENT=${{ github.ref == 'refs/heads/main' && 'Production' || 'Development' }} \
               -e VAULT_API_URL=${{ secrets.VAULT_API_URL }} \
