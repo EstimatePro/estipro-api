@@ -19,6 +19,8 @@ public static class ServiceCollectionExtensions
 
         var resourceBuilder = ResourceBuilder
             .CreateDefault()
+            .AddHostDetector()
+            .AddContainerDetector()
             .AddService(serviceName: serviceName, serviceVersion: "1.0.0");
 
         var otlpExporter = new OtlpExporter
@@ -63,6 +65,7 @@ public static class ServiceCollectionExtensions
             
             configure.IncludeScopes = true;
             configure.IncludeFormattedMessage = true;
+            configure.ParseStateValues = true;
         });
 
         return service;
