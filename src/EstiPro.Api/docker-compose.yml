@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  estipro.api:
+    image: estipro.api
+    container_name: estipro.api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    depends_on:
+      - estipro.database
+    environment:
+      - ConnectionStrings__EstiProDb=Host=estipro.database;Database=estipro;Username=admin;Password=P@ssw0rdP@ssw0rd
+
+  estipro.database:
+    image: postgres:latest
+    container_name: estipro.database
+    environment:
+      POSTGRES_DB: estipro
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: P@ssw0rdP@ssw0rd
+    volumes:
+      - estipro-database-volume:/var/lib/postgresql/data
+    ports:
+      - "5005:5432"
+
+volumes:
+  estipro-database-volume:

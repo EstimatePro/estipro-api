@@ -1,15 +1,15 @@
-![Alt text](./poke-infrastructure.drawio.svg)
+![Alt text](./estipro-infrastructure.drawio.svg)
 
-# POKE Backend API
-[![main](https://github.com/ViacheslavMelnichenko/poke-api/actions/workflows/main.yml/badge.svg)](https://github.com/ViacheslavMelnichenko/poke-api/actions/workflows/main.yml)
+# EstiPro Backend API
+[![main](https://github.com/ViacheslavMelnichenko/estipro-api/actions/workflows/main.yml/badge.svg)](https://github.com/ViacheslavMelnichenko/estipro-api/actions/workflows/main.yml)
 
 ![.NET Core](https://img.shields.io/badge/.NET_Core-8.0-blue)
 ![License](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey)
 
 ## Overview
-The **POKE API** is the backend component of the POKE project, an ASP.NET Core-based API for Planning Poker, designed to streamline task estimation for IT teams.
+The **EstiPro API** is the backend component of the EstiPro project, an ASP.NET Core-based API for Planning EstiPror, designed to streamline task estimation for IT teams.
 
-Planning Poker is a collaborative approach to estimate project complexity and task effort, encouraging team discussion and consensus. This API serves as the core engine for the POKE application, providing endpoints to manage sessions, handle user estimates, and synchronize responses.
+Planning EstiPror is a collaborative approach to estimate project complexity and task effort, encouraging team discussion and consensus. This API serves as the core engine for the EstiPro application, providing endpoints to manage sessions, handle user estimates, and synchronize responses.
 
 ## Features
 
@@ -44,8 +44,8 @@ Copy code
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ViacheslavMelnichenko/poke-api.git
-   cd poke-api/src/Poke.Api
+   git clone https://github.com/ViacheslavMelnichenko/estipro-api.git
+   cd estipro-api/src/EstiPro.Api
 2. Install dependencies:
    ```bash
    dotnet restore
