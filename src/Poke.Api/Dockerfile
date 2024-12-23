@@ -2,8 +2,8 @@ ARG PROJECT_NAME="Poke.Api"
 ARG ASSEMBLY_NAME="$PROJECT_NAME"
 ARG PROJECT_FILE="./src/$PROJECT_NAME/$PROJECT_NAME.csproj"
 ARG MSBUILD_BUILDCONFIGURATION=Release
-ARG DOTNET_SDK_IMAGE=mcr.microsoft.com/dotnet/sdk:8.0
-ARG DOTNET_ASPNET_IMAGE=mcr.microsoft.com/dotnet/aspnet:8.0
+ARG DOTNET_SDK_IMAGE=mcr.microsoft.com/dotnet/sdk:9.0
+ARG DOTNET_ASPNET_IMAGE=mcr.microsoft.com/dotnet/aspnet:9.0
 
 FROM $DOTNET_ASPNET_IMAGE AS base
 ENV ASPNETCORE_URLS=http://+:80
