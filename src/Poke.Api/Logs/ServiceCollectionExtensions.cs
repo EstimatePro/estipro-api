@@ -65,6 +65,7 @@ public static class ServiceCollectionExtensions
             
             configure.IncludeScopes = true;
             configure.IncludeFormattedMessage = true;
+            configure.ParseStateValues = true;
         });
 
         return service;
