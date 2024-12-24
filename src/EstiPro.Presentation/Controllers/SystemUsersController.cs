@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using EstiPro.Application.DTOs.Users;
 using EstiPro.Application.Users.Commands.VerifyUser;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace EstiPro.Presentation.Controllers;
 
@@ -10,7 +9,6 @@ namespace EstiPro.Presentation.Controllers;
 public class SystemUsersController : BaseApiController<UsersController>
 {
     [HttpPost("create")]
-    [SwaggerOperation(Summary = "Create new user")]
     [ProducesResponseType<UserDto>(200)]
     [ProducesResponseType<UserDto>(400)]
     public async Task<IActionResult> CreateNewAuth0User([FromBody] Auth0UserRegistrationDto? newUser)

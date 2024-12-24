@@ -6,14 +6,12 @@ using EstiPro.Application.DTOs.Auth0;
 using EstiPro.Application.DTOs.Users;
 using EstiPro.Application.Users.Commands.AddUser;
 using EstiPro.Application.Users.Queries;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace EstiPro.Presentation.Controllers;
 
 public sealed class UsersController : BaseApiController<UsersController>
 {
     [HttpGet("{id:guid}")]
-    [SwaggerOperation(Summary = "Get user")]
     [ProducesResponseType<UserDto>(200)]
     [ProducesResponseType<Result>(400)]
     public async Task<IActionResult> GetUser(Guid id, CancellationToken cancellationToken)
@@ -25,7 +23,6 @@ public sealed class UsersController : BaseApiController<UsersController>
 
     [AllowAnonymous]
     [HttpPost("signup")]
-    [SwaggerOperation(Summary = "Create a new user")]
     [ProducesResponseType<UserDto>(200)]
     [ProducesResponseType<UserDto>(400)]
     public async Task<IActionResult> RegisterUser([FromBody] RegisterUserDto user, CancellationToken cancellationToken)
@@ -37,7 +34,6 @@ public sealed class UsersController : BaseApiController<UsersController>
 
     [AllowAnonymous]
     [HttpPost("token")]
-    [SwaggerOperation(Summary = "Get access token")]
     [ProducesResponseType<AccessTokenResponse>(200)]
     [ProducesResponseType<Result>(400)]
     public async Task<IActionResult> Authorize([FromBody] AccessTokenUserCredentials tokenRequest)

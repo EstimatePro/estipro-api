@@ -4,7 +4,7 @@
     "EstiPro.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "swagger",
+      "launchUrl": "scalar/v1",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ConnectionStrings__EstiProDb": "Host=127.0.0.1;Port=5432;Database=estipro;Username=slava;Password=Death#666"

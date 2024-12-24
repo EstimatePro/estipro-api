@@ -13,7 +13,6 @@ using EstiPro.Application.Rooms.Commands.LeaveRoom;
 using EstiPro.Application.Rooms.Commands.UpdateRoom;
 using EstiPro.Application.Rooms.Queries.GetRoom;
 using EstiPro.Presentation.Extensions;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace EstiPro.Presentation.Controllers;
 
@@ -22,10 +21,10 @@ public class RoomsController : BaseApiController<RoomsController>
     #region ROOM
 
     [HttpPost]
-    [SwaggerOperation(Summary = "Create room")]
     [ProducesResponseType<RoomDto>(200)]
     [ProducesResponseType<RoomDto>(400)]
-    public async Task<IActionResult> CreateRoom([FromBody] CreateRoomDto createRoomDto, CancellationToken cancellationToken)
+    public async Task<IActionResult> CreateRoom([FromBody] CreateRoomDto createRoomDto,
+        CancellationToken cancellationToken)
     {
         var userId = User.GetUserGuid();
         var command = new CreateRoomCommand(userId, createRoomDto);
@@ -35,7 +34,6 @@ public class RoomsController : BaseApiController<RoomsController>
     }
 
     [HttpGet("{roomId:guid}")]
-    [SwaggerOperation(Summary = "Get room")]
     [ProducesResponseType<RoomDto>(200)]
     [ProducesResponseType<RoomDto>(400)]
     public async Task<IActionResult> GetRoom(Guid roomId, CancellationToken cancellationToken)
@@ -48,10 +46,10 @@ public class RoomsController : BaseApiController<RoomsController>
     }
 
     [HttpPut("{roomId:guid}")]
-    [SwaggerOperation(Summary = "Update room")]
     [ProducesResponseType<RoomDto>(200)]
     [ProducesResponseType<RoomDto>(400)]
-    public async Task<IActionResult> UpdateRoom([FromBody] UpdateRoomDto updateRoomDto, CancellationToken cancellationToken)
+    public async Task<IActionResult> UpdateRoom([FromBody] UpdateRoomDto updateRoomDto,
+        CancellationToken cancellationToken)
     {
         var userId = User.GetUserGuid();
         var command = new UpdateRoomCommand(userId, updateRoomDto);
@@ -61,7 +59,6 @@ public class RoomsController : BaseApiController<RoomsController>
     }
 
     [HttpDelete("{roomId:guid}")]
-    [SwaggerOperation(Summary = "Delete room")]
     [ProducesResponseType<IActionResult>(200)]
     public async Task<IActionResult> DeleteRoom(Guid roomId, CancellationToken cancellationToken)
     {
@@ -76,7 +73,6 @@ public class RoomsController : BaseApiController<RoomsController>
     #region ATTENDANCE
 
     [HttpPost("{roomId:guid}/join")]
-    [SwaggerOperation(Summary = "Join room")]
     [ProducesResponseType<Result>(200)]
     [ProducesResponseType<Result>(400)]
     public async Task<IActionResult> JoinRoom(Guid roomId, CancellationToken cancellationToken)
@@ -89,7 +85,6 @@ public class RoomsController : BaseApiController<RoomsController>
     }
 
     [HttpPost("{roomId:guid}/leave")]
-    [SwaggerOperation(Summary = "Leave room")]
     [ProducesResponseType<Result>(200)]
     [ProducesResponseType<Result>(400)]
     public async Task<IActionResult> LeaveRoom(Guid roomId, CancellationToken cancellationToken)
@@ -106,7 +101,6 @@ public class RoomsController : BaseApiController<RoomsController>
     #region TICKETS
 
     [HttpPost("{roomId:guid}/tickets")]
-    [SwaggerOperation(Summary = "Add ticket")]
     [ProducesResponseType<TicketDto>(200)]
     [ProducesResponseType<TicketDto>(400)]
     public async Task<IActionResult> AddTicket(
@@ -126,7 +120,6 @@ public class RoomsController : BaseApiController<RoomsController>
     #region VOTING
 
     [HttpPost("{roomId:guid}/tickets/{ticketId:guid}/vote")]
-    [SwaggerOperation(Summary = "Add vote")]
     [ProducesResponseType<TicketDto>(200)]
     [ProducesResponseType<TicketDto>(400)]
     public async Task<IActionResult> AddVote(

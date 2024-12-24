@@ -1,11 +1,9 @@
-using Microsoft.Extensions.Options;
 using EstiPro.Api.Extensions;
 using EstiPro.Api.Observability;
-using EstiPro.Api.Swagger;
 using EstiPro.Application;
 using EstiPro.Infrastructure;
 using EstiPro.Presentation;
-using Swashbuckle.AspNetCore.SwaggerGen;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,8 +18,7 @@ builder
     .AddCache(builder.Configuration)
     .AddBasicAuthenticationAndAuthorization()
     .AddAuth0AuthenticationAndAuthorization(builder.Configuration)
-    .AddSwaggerGen()
-    .AddTransient<IConfigureOptions<SwaggerGenOptions>, CustomSwaggerOptions>();
+    .AddOpenApi();
 
 // Build and configure application
 var app = builder.Build();
@@ -30,12 +27,16 @@ await app.ApplyMigrations();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
+    app.MapOpenApi();
+    app.MapScalarApiReference(options =>
+    {
+        options.HideDownloadButton = true;
+        options.WithHttpBearerAuthentication(authOptions => { authOptions.Token = "your-api-key"; });
+    });
 }
 
 app.UseHttpsRedirection();
 app.MapCustomHealthChecks();
-app.UseSwagger();
-app.UseSwaggerUI();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
