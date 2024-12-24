@@ -21,7 +21,12 @@ public static class ServiceCollectionExtensions
             .CreateDefault()
             .AddHostDetector()
             .AddContainerDetector()
-            .AddService(serviceName: serviceName, serviceVersion: "1.0.0");
+            .AddService(serviceName: serviceName, serviceVersion: "1.0.0")
+            .AddAttributes(new Dictionary<string, object>
+            {
+                { "deployment.environment", builder.Environment.EnvironmentName },
+                { "organization", "EstiPro" }
+            });
 
         var otlpExporter = new OtlpExporter
         {
