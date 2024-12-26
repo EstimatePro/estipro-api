@@ -38,6 +38,10 @@ public static class ServiceCollectionExtensions
         builder.Logging.ClearProviders();
 
         builder.Services.AddOpenTelemetry()
+            .ConfigureResource(r =>
+            {
+                r.AddAttributes(resourceBuilder.Build().Attributes);
+            })
             .WithTracing(configure =>
             {
                 configure
