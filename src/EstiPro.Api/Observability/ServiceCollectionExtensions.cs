@@ -9,7 +9,8 @@ namespace EstiPro.Api.Observability;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddCustomObservability(this IServiceCollection service, WebApplicationBuilder builder)
+    public static IServiceCollection AddCustomObservability(this IServiceCollection service,
+        WebApplicationBuilder builder)
     {
         var endpoint = builder.Configuration["OpenTelemetry:Exporter.Endpoint"];
         var authHeader = builder.Configuration["OpenTelemetry:Exporter.Headers.Authorization"];
@@ -38,10 +39,6 @@ public static class ServiceCollectionExtensions
         builder.Logging.ClearProviders();
 
         builder.Services.AddOpenTelemetry()
-            .ConfigureResource(r =>
-            {
-                r.AddAttributes(resourceBuilder.Build().Attributes);
-            })
             .WithTracing(configure =>
             {
                 configure
@@ -71,7 +68,7 @@ public static class ServiceCollectionExtensions
                 .SetResourceBuilder(resourceBuilder)
                 .UseGrafana(config => { config.ExporterSettings = otlpExporter; })
                 .AddOtlpExporter();
-            
+
             configure.IncludeScopes = true;
             configure.IncludeFormattedMessage = true;
             configure.ParseStateValues = true;
