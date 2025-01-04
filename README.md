@@ -1,9 +1,9 @@
 ![Alt text](./estipro-infrastructure.drawio.svg)
 
 # EstiPro Backend API
-[![main](https://github.com/ViacheslavMelnichenko/estipro-api/actions/workflows/main.yml/badge.svg)](https://github.com/ViacheslavMelnichenko/estipro-api/actions/workflows/main.yml)
+[![main](https://github.com/EstimatePro/estipro-api/actions/workflows/main.yml/badge.svg)](https://github.com/ViacheslavMelnichenko/estipro-api/actions/workflows/main.yml)
 
-![.NET Core](https://img.shields.io/badge/.NET_Core-8.0-blue)
+![.NET Core](https://img.shields.io/badge/.NET_Core-9.0-blue)
 ![License](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey)
 
 ## Overview
@@ -37,14 +37,14 @@ Copy code
 ## Getting Started
 
 ### Prerequisites
-- [.NET Core SDK 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
+- [.NET Core SDK 9.0](https://dotnet.microsoft.com/download/dotnet/9.0)
 - A SQL database (PostgreSQL) for persistent storage
 
 ### Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ViacheslavMelnichenko/estipro-api.git
+   git clone https://github.com/EstimatePro/estipro-api.git
    cd estipro-api/src/EstiPro.Api
 2. Install dependencies:
    ```bash
