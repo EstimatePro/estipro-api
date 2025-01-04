@@ -1,28 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AutoBogus"/>
-        <PackageReference Include="FluentAssertions"/>
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing"/>
-        <PackageReference Include="Microsoft.NET.Test.Sdk"/>
-        <PackageReference Include="Moq"/>
-        <PackageReference Include="Testcontainers.PostgreSql"/>
-        <PackageReference Include="xunit"/>
-        <PackageReference Include="xunit.runner.visualstudio">
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-            <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-        <PackageReference Include="coverlet.collector">
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-            <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
+        <PackageReference Update="AutoBogus"/>
+        <PackageReference Update="FluentAssertions"/>
+        <PackageReference Update="Microsoft.AspNetCore.Mvc.Testing"/>
+        <PackageReference Update="Microsoft.NET.Test.Sdk"/>
+        <PackageReference Update="Moq"/>
+        <PackageReference Update="Testcontainers.PostgreSql"/>
+        <PackageReference Update="xunit"/>
+        <PackageReference Update="xunit.runner.visualstudio"/>
     </ItemGroup>
 
     <ItemGroup>

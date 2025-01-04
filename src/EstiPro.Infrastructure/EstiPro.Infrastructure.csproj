@@ -1,23 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AspNetCore.HealthChecks.SqlServer"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks"/>
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore"/>
-        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL"/>
-        <PackageReference Include="Refit.HttpClientFactory"/>
-        <PackageReference Include="System.Text.Encodings.Web"/>
+        <PackageReference Update="AspNetCore.HealthChecks.SqlServer"/>
+        <PackageReference Update="Microsoft.EntityFrameworkCore"/>
+        <PackageReference Update="Microsoft.EntityFrameworkCore.Tools"/>
+        <PackageReference Update="Microsoft.Extensions.Diagnostics.HealthChecks"/>
+        <PackageReference Update="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore"/>
+        <PackageReference Update="Npgsql.EntityFrameworkCore.PostgreSQL"/>
+        <PackageReference Update="Refit.HttpClientFactory"/>
+        <PackageReference Update="System.Text.Encodings.Web"/>
     </ItemGroup>
 
     <ItemGroup>
