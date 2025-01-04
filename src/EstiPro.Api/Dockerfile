@@ -48,4 +48,4 @@ COPY --from=publish /app .
 # Set the entry point
 ARG PROJECT_NAME
 ENV DOTNET_ENTRYPOINT=$PROJECT_NAME.dll
-ENTRYPOINT ["dotnet", "$DOTNET_ENTRYPOINT"]
+ENTRYPOINT ["sh", "-c", "dotnet $DOTNET_ENTRYPOINT"]
