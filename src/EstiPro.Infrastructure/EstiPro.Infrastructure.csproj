@@ -1,31 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+    <PropertyGroup>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="9.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="9.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="9.0.0" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.2" />
-    <PackageReference Include="Refit.HttpClientFactory" Version="8.0.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Update="AspNetCore.HealthChecks.SqlServer"/>
+        <PackageReference Update="Microsoft.EntityFrameworkCore"/>
+        <PackageReference Update="Microsoft.EntityFrameworkCore.Tools"/>
+        <PackageReference Update="Microsoft.Extensions.Diagnostics.HealthChecks"/>
+        <PackageReference Update="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore"/>
+        <PackageReference Update="Npgsql.EntityFrameworkCore.PostgreSQL"/>
+        <PackageReference Update="Refit.HttpClientFactory"/>
+        <PackageReference Update="System.Text.Encodings.Web"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\EstiPro.Application\EstiPro.Application.csproj"/>
-    <ProjectReference Include="..\EstiPro.Domain\EstiPro.Domain.csproj"/>
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\EstiPro.Application\EstiPro.Application.csproj"/>
+        <ProjectReference Include="..\EstiPro.Domain\EstiPro.Domain.csproj"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Migrations\"/>
+    </ItemGroup>
 
 </Project>
