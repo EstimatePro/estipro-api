@@ -23,7 +23,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstiPro.Api", "src\EstiPro.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstiPro.PerformanceTests", "tests\EstiPro.PerformanceTests\EstiPro.PerformanceTests.csproj", "{CD3B2102-C79B-43F4-90BD-52558669E9CA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "collections", "collections", "{DFAC3DA5-0700-4E0F-A7F7-E0035D8ED66B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{46A667D6-E533-428A-A5FE-75A4C29963F2}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		.dockerignore = .dockerignore
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
