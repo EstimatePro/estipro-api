@@ -32,6 +32,8 @@ public static class DependencyInjection
 
         // Add services
         services.AddTransient<IAuth0Service, Auth0Service>();
+        services.AddTransient<IAuth0UserService, Auth0UserService>();
+        services.AddSingleton<Auth0ManagementClientService>();
 
         return services;
     }

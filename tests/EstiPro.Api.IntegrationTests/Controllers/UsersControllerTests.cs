@@ -1,4 +1,5 @@
 using System.Net.Http.Json;
+using Auth0.ManagementApi.Models;
 using AutoBogus;
 using FluentAssertions;
 using Moq;
@@ -41,9 +42,9 @@ public class UsersControllerTests(
             .RuleFor(f => f.Password, f => f.Internet.Password())
             .Generate();
 
-        WebApiFixture.Auth0ServiceMock
-            .Setup(x => x.RegisterUser(It.IsAny<UserRegistrationDataDto>()))
-            .ReturnsAsync(new AutoFaker<UserDto>().Generate());
+        WebApiFixture.Auth0UserServiceMock
+            .Setup(x => x.CreateUserAsync(It.IsAny<UserRegistrationDataDto>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(new AutoFaker<User>().Generate());
 
         // Act
         var response = await HttpClient.PostAsJsonAsync(BasicUrl + "/signup", createdUserData);

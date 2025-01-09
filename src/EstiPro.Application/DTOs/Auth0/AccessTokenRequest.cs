@@ -1,14 +1,9 @@
 using System.Text.Json.Serialization;
 
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-
 namespace EstiPro.Application.DTOs.Auth0;
 
-public sealed class AccessTokenRequest : AccessTokenUserCredentials
+public class AccessTokenRequest
 {
-    [JsonPropertyName("username")]
-    public required string UserName { get; set; }
-    
     [JsonPropertyName("grant_type")]
     public string? GrantType { get; set; }
 

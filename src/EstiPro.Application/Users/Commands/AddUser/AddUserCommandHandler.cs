@@ -12,7 +12,7 @@ namespace EstiPro.Application.Users.Commands.AddUser;
 
 public sealed class AddUserCommandHandler(
     IUserRepository userRepository,
-    IAuth0Service auth0Service,
+    IAuth0UserService auth0UserService,
     IUnitOfWork unitOfWork)
     : ICommandHandler<AddUserCommand, Result<UserDto>>
 {
@@ -27,12 +27,13 @@ public sealed class AddUserCommandHandler(
 
         var newUser = new User(Guid.NewGuid(), command.User.Email, command.User.NickName);
 
-        var result = await auth0Service
-            .RegisterUser(new UserRegistrationDataDto(newUser.Id, newUser.Email, command.User.Password));
+        var result = await auth0UserService
+            .CreateUserAsync(UserMapper.UserToUserRegistrationDataDto(newUser, command.User.Password),
+                cancellationToken);
 
-        if (result == null)
+        if (result.IsFailed)
         {
-            return Result.Fail("User registration fails.");
+            return result.ToResult();
         }
 
         userRepository.Add(newUser);

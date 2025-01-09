@@ -5,22 +5,18 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Update="FluentResults.Extensions.AspNetCore"/>
-        <PackageReference Update="MediatR"/>
-        <PackageReference Update="Microsoft.AspNetCore.OpenApi"/>
-        <PackageReference Update="Newtonsoft.Json"/>
-        <PackageReference Update="Swashbuckle.AspNetCore"/>
-        <PackageReference Update="Swashbuckle.AspNetCore.Annotations"/>
-        <PackageReference Update="System.Text.Encodings.Web"/>
+        <PackageReference Include="FluentResults.Extensions.AspNetCore"/>
+        <PackageReference Include="MediatR"/>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
+        <PackageReference Include="Newtonsoft.Json"/>
+        <PackageReference Include="Swashbuckle.AspNetCore"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.Annotations"/>
+        <PackageReference Include="System.Text.Encodings.Web"/>
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\EstiPro.Application\EstiPro.Application.csproj"/>
         <ProjectReference Include="..\EstiPro.Domain\EstiPro.Domain.csproj"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="Properties\"/>
     </ItemGroup>
 
 </Project>

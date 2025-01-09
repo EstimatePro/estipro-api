@@ -6,17 +6,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Update="AspNetCore.HealthChecks.UI.Client"/>
-        <PackageReference Update="Grafana.OpenTelemetry"/>
-        <PackageReference Update="Microsoft.AspNetCore.Authentication.JwtBearer"/>
-        <PackageReference Update="Microsoft.AspNetCore.Authentication.OpenIdConnect"/>
-        <PackageReference Update="Microsoft.AspNetCore.OpenApi"/>
-        <PackageReference Update="Microsoft.EntityFrameworkCore"/>
-        <PackageReference Update="Microsoft.EntityFrameworkCore.Design"/>
-        <PackageReference Update="OpenTelemetry.Exporter.Console"/>
-        <PackageReference Update="Swashbuckle.AspNetCore"/>
-        <PackageReference Update="System.Drawing.Common"/>
-        <PackageReference Update="VaultSharp"/>
+        <PackageReference Include="AspNetCore.HealthChecks.UI.Client"/>
+        <PackageReference Include="Grafana.OpenTelemetry"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect"/>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="OpenTelemetry.Exporter.Console"/>
+        <PackageReference Include="Swashbuckle.AspNetCore"/>
+        <PackageReference Include="System.Drawing.Common"/>
+        <PackageReference Include="VaultSharp"/>
     </ItemGroup>
 
     <ItemGroup>

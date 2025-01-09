@@ -8,15 +8,16 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Update="Dapper"/>
-        <PackageReference Update="FluentResults"/>
-        <PackageReference Update="FluentValidation.AspNetCore"/>
-        <PackageReference Update="FluentValidation.DependencyInjectionExtensions"/>
-        <PackageReference Update="MediatR"/>
-        <PackageReference Update="MediatR.Contracts"/>
-        <PackageReference Update="Microsoft.EntityFrameworkCore"/>
-        <PackageReference Update="Refit.HttpClientFactory"/>
-        <PackageReference Update="ZiggyCreatures.FusionCache"/>
+        <PackageReference Include="Dapper"/>
+        <PackageReference Include="FluentResults"/>
+        <PackageReference Include="FluentValidation.AspNetCore"/>
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions"/>
+        <PackageReference Include="MediatR"/>
+        <PackageReference Include="MediatR.Contracts"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore"/>
+        <PackageReference Include="Refit.HttpClientFactory"/>
+        <PackageReference Include="ZiggyCreatures.FusionCache"/>
+        <PackageReference Include="Auth0.ManagementApi" />
     </ItemGroup>
 
 </Project>

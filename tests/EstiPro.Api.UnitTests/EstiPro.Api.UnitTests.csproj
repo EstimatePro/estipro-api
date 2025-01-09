@@ -6,10 +6,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Update="FluentAssertions"/>
-        <PackageReference Update="Microsoft.NET.Test.Sdk"/>
-        <PackageReference Update="System.Drawing.Common"/>
-        <PackageReference Update="xunit"/>
+        <PackageReference Include="FluentAssertions"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk"/>
+        <PackageReference Include="System.Drawing.Common"/>
+        <PackageReference Include="xunit"/>
     </ItemGroup>
 
 </Project>
