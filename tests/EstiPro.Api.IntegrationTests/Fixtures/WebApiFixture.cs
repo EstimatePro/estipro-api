@@ -21,6 +21,7 @@ public sealed class WebApiFixture : StartupFixture<Program>
     public static List<UserDto> Users { get; private set; } = [];
 
     public Mock<IAuth0Service> Auth0ServiceMock { get; } = new();
+    public Mock<IAuth0UserService> Auth0UserServiceMock { get; } = new();
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
@@ -43,6 +44,7 @@ public sealed class WebApiFixture : StartupFixture<Program>
         Users.Add(RegularUser);
 
         services.AddSingleton(_ => Auth0ServiceMock.Object);
+        services.AddSingleton(_ => Auth0UserServiceMock.Object);
 
         services
             .AddAuthentication(TestAuthHandler.AuthenticationScheme)

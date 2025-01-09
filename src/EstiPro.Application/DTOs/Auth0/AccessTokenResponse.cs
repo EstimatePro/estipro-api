@@ -11,7 +11,7 @@ public sealed class AccessTokenResponse
     public string TokenType { get; init; }
 
     [JsonPropertyName("access_token")]
-    public string AccessToken { get; init; }
+    public string? AccessToken { get; init; }
 
     [JsonPropertyName("expires_in")]
     public long ExpiresIn { get; init; }

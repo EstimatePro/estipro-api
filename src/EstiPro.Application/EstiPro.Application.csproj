@@ -17,6 +17,7 @@
         <PackageReference Update="Microsoft.EntityFrameworkCore"/>
         <PackageReference Update="Refit.HttpClientFactory"/>
         <PackageReference Update="ZiggyCreatures.FusionCache"/>
+        <PackageReference Update="Auth0.ManagementApi" />
     </ItemGroup>
 
 </Project>
