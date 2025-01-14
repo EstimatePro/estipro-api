@@ -47,7 +47,7 @@ jobs:
     name: Publish Docker Image
     runs-on: ubuntu-latest
     needs: build_and_test
-    if: ${{ success() }} && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/development')
+    if: ${{ success() }} && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/development' || github.event_name == 'workflow_dispatch')
     environment: ${{ github.ref == 'refs/heads/main' && 'PRODUCTION' || 'DEVELOPMENT' }}
 
     steps:
@@ -79,7 +79,7 @@ jobs:
     name: Deploy to Server
     runs-on: ubuntu-latest
     needs: publish
-    if: ${{ success() }} && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/development' || (github.event_name == 'workflow_dispatch' && github.event.inputs.branch != 'main' && github.event.inputs.branch != 'development'))
+    if: ${{ success() }} && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/development' || github.event_name == 'workflow_dispatch')
     environment: ${{ github.ref == 'refs/heads/main' && 'PRODUCTION' || 'DEVELOPMENT' }}
 
     steps:
