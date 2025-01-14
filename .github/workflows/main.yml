@@ -5,11 +5,17 @@ on:
     branches:
       - main
       - development
+      - '*'
   pull_request:
     branches:
       - main
       - development
   workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy (only for non-main, non-development branches)'
+        required: true
+        default: 'development'
 
 env:
   DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/${{ vars.IMAGE_NAME }}:${{ vars.IMAGE_TAG }}
@@ -19,7 +25,6 @@ jobs:
     name: Build and Test
     runs-on: ubuntu-latest
     environment: ${{ github.ref == 'refs/heads/main' && 'PRODUCTION' || 'DEVELOPMENT' }}
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -42,7 +47,7 @@ jobs:
     name: Publish Docker Image
     runs-on: ubuntu-latest
     needs: build_and_test
-    if: ${{ success() }}
+    if: ${{ success() }} && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/development')
     environment: ${{ github.ref == 'refs/heads/main' && 'PRODUCTION' || 'DEVELOPMENT' }}
 
     steps:
@@ -74,7 +79,7 @@ jobs:
     name: Deploy to Server
     runs-on: ubuntu-latest
     needs: publish
-    if: ${{ success() }}
+    if: ${{ success() }} && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/development' || (github.event_name == 'workflow_dispatch' && github.event.inputs.branch != 'main' && github.event.inputs.branch != 'development'))
     environment: ${{ github.ref == 'refs/heads/main' && 'PRODUCTION' || 'DEVELOPMENT' }}
 
     steps:
