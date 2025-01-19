@@ -1,4 +1,3 @@
-using System.Text.Json;
 using System.Text.Json.Nodes;
 using VaultSharp;
 using VaultSharp.V1.AuthMethods.Token;
@@ -32,16 +31,43 @@ public sealed class VaultConfigurationProvider(IHostApplicationBuilder hostBuild
         var path =
             $"{hostBuilder.Environment.EnvironmentName.ToLowerInvariant()}/{hostBuilder.Environment.ApplicationName}";
 
+        // Retrieve all key-values as a JsonObject (JsonNode)
         var allKeyValues = vaultClient.V1.Secrets.KeyValue.V2.ReadSecretAsync<JsonObject>(path, mountPoint: mountPoint)
             .Result.Data.Data;
 
         foreach (var keyValue in allKeyValues)
         {
-            foreach (KeyValuePair<string, string> pair in keyValue.Value.Deserialize<IDictionary<string, string>>()!)
+            // Call the recursive method to flatten and add nested objects
+            FlattenAndAddToData(keyValue.Key, keyValue.Value);
+        }
+    }
+
+    private void FlattenAndAddToData(string prefix, JsonNode? value)
+    {
+        if (value is JsonObject jsonObject)
+        {
+            // If the value is a JsonObject, recursively process its properties
+            foreach (var property in jsonObject)
             {
-                var compositeKey = $"{keyValue.Key}:{pair.Key}";
-                Data.TryAdd(compositeKey, pair.Value);
+                FlattenAndAddToData($"{prefix}:{property.Key}", property.Value);
             }
+        }
+        else if (value is JsonValue jsonValue)
+        {
+            // If the value is a JsonValue (primitive), add it to the dictionary
+            if (jsonValue.TryGetValue(out string? stringValue))
+            {
+                Data.TryAdd(prefix, stringValue);
+            }
+            else if (jsonValue.TryGetValue(out int intValue))
+            {
+                Data.TryAdd(prefix, intValue.ToString());
+            }
+            else if (jsonValue.TryGetValue(out bool boolValue))
+            {
+                Data.TryAdd(prefix, boolValue.ToString());
+            }
+            // Handle other primitive types as needed
         }
     }
 
