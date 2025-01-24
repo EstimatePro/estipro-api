@@ -41,7 +41,7 @@ public static class ServiceCollectionExtensions
                 options =>
                 {
                     options.Authority = configuration["Auth0:Domain"];
-                    options.Audience = configuration["Auth0:Audience"];
+                    options.Audience = configuration["Auth0:EstiPro:Audience"];
                     options.RequireHttpsMetadata = false;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {

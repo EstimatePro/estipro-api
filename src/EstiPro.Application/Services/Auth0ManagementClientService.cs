@@ -58,10 +58,10 @@ public class Auth0ManagementClientService(
         logger.LogInformation("Requesting new Auth0 access token...");
         var request = new AccessTokenRequest
         {
-            GrantType = _auth0Options.GrantType,
-            ClientId = _auth0Options.ClientId,
-            ClientSecret = _auth0Options.ClientSecret,
-            Audience = _auth0Options.Audience
+            GrantType = _auth0Options.EstiProApi.GrantType,
+            ClientId = _auth0Options.EstiProApi.ClientId,
+            ClientSecret = _auth0Options.EstiProApi.ClientSecret,
+            Audience = _auth0Options.EstiProApi.Audience
         };
 
         try

@@ -18,10 +18,10 @@ public sealed class Auth0Service(IAuth0Client client, IOptions<Auth0Options> opt
         {
             UserName = tokenRequest.Email,
             Password = tokenRequest.Password,
-            GrantType = "password",
-            ClientId = options.Value.ClientId,
-            ClientSecret = options.Value.ClientSecret,
-            Audience = options.Value.Audience,
+            GrantType = options.Value.EstiPro.GrantType,
+            ClientId = options.Value.EstiPro.ClientId,
+            ClientSecret = options.Value.EstiPro.ClientSecret,
+            Audience = options.Value.EstiPro.Audience,
         };
         return await client.GetAccessToken(request);
     }
