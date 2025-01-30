@@ -20,12 +20,16 @@
         <PackageReference Include="Swashbuckle.AspNetCore"/>
         <PackageReference Include="System.Drawing.Common"/>
         <PackageReference Include="VaultSharp"/>
+        <PackageReference Include="FluentResults.Extensions.AspNetCore"/>
+        <PackageReference Include="MediatR"/>
+        <PackageReference Include="Newtonsoft.Json"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.Annotations"/>
+        <PackageReference Include="System.Text.Encodings.Web"/>
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\EstiPro.Application\EstiPro.Application.csproj"/>
         <ProjectReference Include="..\EstiPro.Infrastructure\EstiPro.Infrastructure.csproj"/>
-        <ProjectReference Include="..\EstiPro.Presentation\EstiPro.Presentation.csproj"/>
     </ItemGroup>
 
 </Project>

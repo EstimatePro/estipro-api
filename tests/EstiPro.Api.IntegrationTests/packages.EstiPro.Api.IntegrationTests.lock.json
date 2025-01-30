@@ -2190,15 +2190,19 @@
           "AspNetCore.HealthChecks.UI.Client": "[9.0.0, )",
           "EstiPro.Application": "[1.0.0, )",
           "EstiPro.Infrastructure": "[1.0.0, )",
-          "EstiPro.Presentation": "[1.0.0, )",
+          "FluentResults.Extensions.AspNetCore": "[0.1.0, )",
           "Grafana.OpenTelemetry": "[1.1.0, )",
+          "MediatR": "[12.4.1, )",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "[9.0.1, )",
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "[9.0.1, )",
           "Microsoft.AspNetCore.OpenApi": "[9.0.1, )",
           "Microsoft.EntityFrameworkCore": "[9.0.1, )",
+          "Newtonsoft.Json": "[13.0.3, )",
           "OpenTelemetry.Exporter.Console": "[1.11.1, )",
           "Swashbuckle.AspNetCore": "[7.2.0, )",
+          "Swashbuckle.AspNetCore.Annotations": "[7.2.0, )",
           "System.Drawing.Common": "[9.0.1, )",
+          "System.Text.Encodings.Web": "[9.0.1, )",
           "VaultSharp": "[1.17.5.1, )"
         }
       },
@@ -2232,20 +2236,6 @@
           "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore": "[9.0.1, )",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "[9.0.3, )",
           "Refit.HttpClientFactory": "[8.0.0, )",
-          "System.Text.Encodings.Web": "[9.0.1, )"
-        }
-      },
-      "estipro.presentation": {
-        "type": "Project",
-        "dependencies": {
-          "EstiPro.Application": "[1.0.0, )",
-          "EstiPro.Domain": "[1.0.0, )",
-          "FluentResults.Extensions.AspNetCore": "[0.1.0, )",
-          "MediatR": "[12.4.1, )",
-          "Microsoft.AspNetCore.OpenApi": "[9.0.1, )",
-          "Newtonsoft.Json": "[13.0.3, )",
-          "Swashbuckle.AspNetCore": "[7.2.0, )",
-          "Swashbuckle.AspNetCore.Annotations": "[7.2.0, )",
           "System.Text.Encodings.Web": "[9.0.1, )"
         }
       },

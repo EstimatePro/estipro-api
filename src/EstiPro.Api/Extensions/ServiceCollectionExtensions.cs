@@ -1,10 +1,12 @@
 using System.Security.Claims;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using EstiPro.Api.Authorization;
 using EstiPro.Api.Options;
+using FluentValidation.AspNetCore;
 using ZiggyCreatures.Caching.Fusion;
 
 namespace EstiPro.Api.Extensions;
@@ -72,6 +74,25 @@ public static class ServiceCollectionExtensions
     {
         services.AddAuthentication("Basic")
             .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("Basic", null);
+
+        return services;
+    }
+    
+    public static IServiceCollection AddPresentation(this IServiceCollection services)
+    {
+        var assembly = typeof(ServiceCollectionExtensions).Assembly;
+
+        services
+            .AddControllers()
+            .AddJsonOptions(
+                options =>
+                {
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                })
+            .AddApplicationPart(assembly);
+
+        services.AddFluentValidationAutoValidation();
+        services.AddEndpointsApiExplorer();
 
         return services;
     }

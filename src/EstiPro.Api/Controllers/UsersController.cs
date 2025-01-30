@@ -1,14 +1,14 @@
-using FluentResults;
-using FluentResults.Extensions.AspNetCore;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 using EstiPro.Application.DTOs.Auth0;
 using EstiPro.Application.DTOs.Users;
 using EstiPro.Application.Users.Commands.AddUser;
 using EstiPro.Application.Users.Queries;
+using FluentResults;
+using FluentResults.Extensions.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace EstiPro.Presentation.Controllers;
+namespace EstiPro.Api.Controllers;
 
 public sealed class UsersController : BaseApiController<UsersController>
 {

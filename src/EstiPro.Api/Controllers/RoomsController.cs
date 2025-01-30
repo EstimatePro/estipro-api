@@ -1,6 +1,4 @@
-using FluentResults;
-using FluentResults.Extensions.AspNetCore;
-using Microsoft.AspNetCore.Mvc;
+using EstiPro.Api.Extensions;
 using EstiPro.Application.DTOs.Rooms;
 using EstiPro.Application.DTOs.Tickets;
 using EstiPro.Application.DTOs.VotingItems;
@@ -12,10 +10,12 @@ using EstiPro.Application.Rooms.Commands.JoinRoom;
 using EstiPro.Application.Rooms.Commands.LeaveRoom;
 using EstiPro.Application.Rooms.Commands.UpdateRoom;
 using EstiPro.Application.Rooms.Queries.GetRoom;
-using EstiPro.Presentation.Extensions;
+using FluentResults;
+using FluentResults.Extensions.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace EstiPro.Presentation.Controllers;
+namespace EstiPro.Api.Controllers;
 
 public class RoomsController : BaseApiController<RoomsController>
 {
