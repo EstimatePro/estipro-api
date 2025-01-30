@@ -24,7 +24,7 @@ public sealed class AddUserCommandHandler(
             return Result.Fail($"User with {command.User.Email} already registered.");
         }
 
-        var newUser = new User(Guid.NewGuid(), command.User.Email, command.User.NickName);
+        var newUser = new User(Guid.CreateVersion7(), command.User.Email, command.User.NickName);
 
         var result = await auth0UserService
             .CreateUserAsync(UserMapper.UserToUserRegistrationDataDto(newUser, command.User.Password),

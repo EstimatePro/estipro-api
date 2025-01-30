@@ -35,7 +35,7 @@ public class JoinRoomCommandHandler(
             return Result.Fail($"User with {command.UserId} was not found!");
         }
 
-        var session = new Session(Guid.NewGuid(), room.Id, user.Id, Role.Common);
+        var session = new Session(Guid.CreateVersion7(), room.Id, user.Id, Role.Common);
         sessionRepository.Add(session);
 
         await unitOfWork.SaveChangesAsync(cancellationToken);

@@ -27,10 +27,10 @@ public class CreateRoomCommandHandler(
             return Result.Fail(CommonErrors.EntityNotFoundError<User>(command.UserId.ToString()));
         }
 
-        var newRoom = new Room(Guid.NewGuid(), command.Room.Name, command.UserId);
+        var newRoom = new Room(Guid.CreateVersion7(), command.Room.Name, command.UserId);
         roomRepository.Add(newRoom);
 
-        var session = new Session(Guid.NewGuid(), newRoom.Id, user.Id, Role.Owner);
+        var session = new Session(Guid.CreateVersion7(), newRoom.Id, user.Id, Role.Owner);
         sessionRepository.Add(session);
 
         await unitOfWork.SaveChangesAsync(cancellationToken);
