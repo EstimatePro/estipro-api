@@ -10,7 +10,7 @@
     <PackageVersion Include="AutoBogus" Version="2.13.1" />
     <PackageVersion Include="coverlet.collector" Version="6.0.3" />
     <PackageVersion Include="Dapper" Version="2.1.35" />
-    <PackageVersion Include="FluentAssertions" Version="[7.0.0]" />
+    <PackageVersion Include="FluentAssertions" Version="[8.1.0]" />
     <PackageVersion Include="FluentResults" Version="3.16.0" />
     <PackageVersion Include="FluentResults.Extensions.AspNetCore" Version="0.1.0" />
     <PackageVersion Include="FluentValidation.AspNetCore" Version="11.3.0" />
