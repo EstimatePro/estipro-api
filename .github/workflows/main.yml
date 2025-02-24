@@ -91,7 +91,6 @@ jobs:
             docker pull '${{ env.DOCKER_IMAGE }}'
             docker rm -f ${{ vars.CONTAINER_NAME }}
             docker run --name ${{ vars.CONTAINER_NAME }} -p ${{ vars.CONTAINER_PORT }}:80 -d \
-              --network infrastructure_estipro_network \
               -e ASPNETCORE_ENVIRONMENT=${{ github.ref == 'refs/heads/main' && 'Production' || 'Development' }} \
               -e VAULT_API_URL=${{ secrets.VAULT_API_URL }} \
               -e VAULT_API_TOKEN=${{ secrets.VAULT_API_TOKEN }} \
