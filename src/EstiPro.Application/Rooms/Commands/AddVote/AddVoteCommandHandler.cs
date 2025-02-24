@@ -38,7 +38,7 @@ public sealed class AddVoteCommandHandler(
         }
 
         var newVote = new Vote(
-            Guid.CreateVersion7(),
+            Guid.NewGuid(),
             ticket.Id,
             command.CreatedByUserId,
             command.Vote.Mark);

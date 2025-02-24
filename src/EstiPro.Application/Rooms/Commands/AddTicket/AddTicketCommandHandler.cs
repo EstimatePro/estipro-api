@@ -26,7 +26,7 @@ public sealed class AddTicketCommandHandler(
         }
 
         var newTicket = new Ticket(
-            Guid.CreateVersion7(),
+            Guid.NewGuid(),
             room.Id,
             command.CreatedByUserId,
             TicketType.Manual,
