@@ -1,8 +1,8 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using EstiPro.Api.Extensions;
 using Microsoft.IdentityModel.Tokens;
 using EstiPro.Application.DTOs.Users;
-using EstiPro.Presentation.Extensions;
 
 namespace EstiPro.Api.IntegrationTests.Fixtures;
 

@@ -1,7 +1,6 @@
 using FluentResults;
 using EstiPro.Application.Abstractions;
 using EstiPro.Application.Abstractions.Messaging;
-using EstiPro.Application.DTOs.Auth0;
 using EstiPro.Application.DTOs.Users;
 using EstiPro.Application.Mappers;
 using EstiPro.Application.Services.Interfaces;

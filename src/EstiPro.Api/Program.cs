@@ -4,7 +4,6 @@ using EstiPro.Api.Observability;
 using EstiPro.Api.Swagger;
 using EstiPro.Application;
 using EstiPro.Infrastructure;
-using EstiPro.Presentation;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);

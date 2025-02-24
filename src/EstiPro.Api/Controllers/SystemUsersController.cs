@@ -1,10 +1,10 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 using EstiPro.Application.DTOs.Users;
 using EstiPro.Application.Users.Commands.VerifyUser;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace EstiPro.Presentation.Controllers;
+namespace EstiPro.Api.Controllers;
 
 [Authorize(AuthenticationSchemes = "Basic")]
 public class SystemUsersController : BaseApiController<UsersController>

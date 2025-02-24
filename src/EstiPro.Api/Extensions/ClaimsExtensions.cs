@@ -1,6 +1,6 @@
 using System.Security.Claims;
 
-namespace EstiPro.Presentation.Extensions;
+namespace EstiPro.Api.Extensions;
 
 public static class ClaimsExtensions
 {

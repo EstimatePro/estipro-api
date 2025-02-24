@@ -1,9 +1,9 @@
+using EstiPro.Application.Services.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using EstiPro.Application.Services.Interfaces;
 
-namespace EstiPro.Presentation.Controllers;
+namespace EstiPro.Api.Controllers;
 
 [ApiController]
 [Authorize]
