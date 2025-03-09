@@ -89,13 +89,17 @@ jobs:
           script: |
             docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
             docker pull '${{ env.DOCKER_IMAGE }}'
-            docker rm -f ${{ vars.CONTAINER_NAME }}
-            docker run --name ${{ vars.CONTAINER_NAME }} -p ${{ vars.CONTAINER_PORT }}:80 -d \
-              --network infrastructure_default \
-              -e ASPNETCORE_ENVIRONMENT=${{ github.ref == 'refs/heads/main' && 'Production' || 'Development' }} \
-              -e VAULT_API_URL=${{ secrets.VAULT_API_URL }} \
-              -e VAULT_API_TOKEN=${{ secrets.VAULT_API_TOKEN }} \
-              --restart always \
+            # Remove the service if it exists
+            docker service rm ${{ vars.CONTAINER_NAME }} || true
+            # Create the service (swarm will spread replicas across nodes)
+            docker service create \
+              --name ${{ vars.CONTAINER_NAME }} \
+              --publish published=${{ vars.CONTAINER_PORT }},target=80 \
+              --network infrastructure_atlant_network \
+              --env ASPNETCORE_ENVIRONMENT=$( [ "${{ github.ref }}" = "refs/heads/main" ] && echo Production || echo Development ) \
+              --env VAULT_API_URL=${{ secrets.VAULT_API_URL }} \
+              --env VAULT_API_TOKEN=${{ secrets.VAULT_API_TOKEN }} \
               '${{ env.DOCKER_IMAGE }}'
             docker image prune -af
             docker volume prune -f
+                docker volume prune -f
