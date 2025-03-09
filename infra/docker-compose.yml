@@ -7,7 +7,7 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
     restart: always
-    
+  
   portainer:
     container_name: portainer
     hostname: portainer
@@ -18,12 +18,3 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./portainer:/data
-  
-  estipro-api:
-    image: estipro/estipro-api:dev
-    deploy:
-      replicas: 3
-      restart_policy:
-        condition: on-failure
-    ports:
-      - "9101:80"
