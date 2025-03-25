@@ -10,9 +10,9 @@ public static class SwaggerExtensions
     {
         options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
         {
-            Title = $"EST Pro API. {environment.EnvironmentName}",
+            Title = $"EstiPro API. {environment.EnvironmentName}",
             Version = "v1",
-            Description = $"EST Pro API. {environment.EnvironmentName}"
+            Description = $"Estimate like a Pro. {environment.EnvironmentName}"
         });
         return options;
     }
