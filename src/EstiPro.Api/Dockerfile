@@ -7,8 +7,8 @@ ARG DOTNET_ASPNET_IMAGE=mcr.microsoft.com/dotnet/aspnet:9.0
 
 # Base runtime image
 FROM $DOTNET_ASPNET_IMAGE AS base
-ENV ASPNETCORE_URLS=https://+:5001;http://+:80
-EXPOSE 80 5001
+ENV ASPNETCORE_URLS=http://+:80
+EXPOSE 80
 WORKDIR /app
 
 # Build image

@@ -31,7 +31,7 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.MapCustomHealthChecks();
 app.UseSwagger();
 app.UseSwaggerUI();
