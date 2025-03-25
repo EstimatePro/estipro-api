@@ -9,7 +9,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5000:80"
-      - "5001:5001"
     depends_on:
       - estipro.database
     environment:
