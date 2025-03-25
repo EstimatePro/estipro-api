@@ -69,33 +69,25 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: ${{ env.DOCKER_IMAGE }}
-#
-#  deploy:
-#    name: Deploy to Server
-#    runs-on: ubuntu-latest
-#    needs: publish
-#    if: ${{ success() }}
-#    environment: ${{ github.ref == 'refs/heads/main' && 'PRODUCTION' || 'DEVELOPMENT' }}
-#
-#    steps:
-#      - name: Deploy to Server
-#        uses: appleboy/ssh-action@master
-#        with:
-#          debug: true
-#          host: ${{ secrets.SSH_HOST }}
-#          username: ${{ secrets.SSH_USERNAME }}
-#          key: ${{ secrets.SSH_KEY }}
-#          port: ${{ secrets.SSH_PORT }}
-#          script: |
-#            docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-#            docker pull '${{ env.DOCKER_IMAGE }}'
-#            docker rm -f ${{ vars.CONTAINER_NAME }}
-#            docker run --name ${{ vars.CONTAINER_NAME }} -p ${{ vars.CONTAINER_PORT }}:80 -d \
-#              --network infrastructure_atlant_network \
-#              -e ASPNETCORE_ENVIRONMENT=${{ github.ref == 'refs/heads/main' && 'Production' || 'Development' }} \
-#              -e VAULT_API_URL=${{ secrets.VAULT_API_URL }} \
-#              -e VAULT_API_TOKEN=${{ secrets.VAULT_API_TOKEN }} \
-#              --restart always \
-#              '${{ env.DOCKER_IMAGE }}'
-#            docker image prune -af
-#            docker volume prune -f
+
+  deploy:
+    name: Deploy to Swarm
+    runs-on: ubuntu-latest
+    needs: publish
+    if: ${{ success() }}
+    environment: ${{ github.ref == 'refs/heads/main' && 'PRODUCTION' || 'DEVELOPMENT' }}
+
+    steps:
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@master
+        with:
+          debug: true
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+            docker pull '${{ env.DOCKER_IMAGE }}'
+            docker service update --force --image ${{ env.DOCKER_IMAGE }} ${{ vars.CONTAINER_NAME }}
+            docker system prune -af --volumes
