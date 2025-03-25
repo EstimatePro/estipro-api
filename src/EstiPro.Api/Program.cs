@@ -19,7 +19,7 @@ builder
     .AddCache(builder.Configuration)
     .AddBasicAuthenticationAndAuthorization()
     .AddAuth0AuthenticationAndAuthorization(builder.Configuration)
-    .AddSwaggerGen()
+    .AddSwaggerGen(opt => opt.SetupSwaggerDoc(builder.Environment))
     .AddTransient<IConfigureOptions<SwaggerGenOptions>, CustomSwaggerOptions>();
 
 // Build and configure application
