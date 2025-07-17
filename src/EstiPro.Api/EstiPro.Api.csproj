@@ -6,30 +6,30 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AspNetCore.HealthChecks.UI.Client"/>
-        <PackageReference Include="Grafana.OpenTelemetry"/>
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer"/>
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect"/>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore"/>
+        <PackageReference Include="AspNetCore.HealthChecks.UI.Client" />
+        <PackageReference Include="Grafana.OpenTelemetry" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="OpenTelemetry.Exporter.Console"/>
-        <PackageReference Include="Swashbuckle.AspNetCore"/>
-        <PackageReference Include="System.Drawing.Common"/>
-        <PackageReference Include="VaultSharp"/>
-        <PackageReference Include="FluentResults.Extensions.AspNetCore"/>
-        <PackageReference Include="MediatR"/>
-        <PackageReference Include="Newtonsoft.Json"/>
-        <PackageReference Include="Swashbuckle.AspNetCore.Annotations"/>
-        <PackageReference Include="System.Text.Encodings.Web"/>
+        <PackageReference Include="OpenTelemetry.Exporter.Console" />
+        <PackageReference Include="Swashbuckle.AspNetCore" />
+        <PackageReference Include="System.Drawing.Common" />
+        <PackageReference Include="VaultSharp" />
+        <PackageReference Include="FluentResults.Extensions.AspNetCore" />
+        <PackageReference Include="MediatR" />
+        <PackageReference Include="Newtonsoft.Json" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Annotations" />
+        <PackageReference Include="System.Text.Encodings.Web" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\EstiPro.Application\EstiPro.Application.csproj"/>
-        <ProjectReference Include="..\EstiPro.Infrastructure\EstiPro.Infrastructure.csproj"/>
+        <ProjectReference Include="..\EstiPro.Application\EstiPro.Application.csproj" />
+        <ProjectReference Include="..\EstiPro.Infrastructure\EstiPro.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>
